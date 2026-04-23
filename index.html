@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js tugas</title>
+</head>
+<body>
+    <script>
+        // soal 1
+        let jumlahItem = 5;
+let totalBayar = 25000;
+let diskon = 0.1;
+
+if (jumlahItem >= 5) {
+    let hargaSetelahDiskon = totalBayar - (totalBayar * diskon);
+    console.log(hargaSetelahDiskon + " karena dapat diskon 10%");
+} else {
+    console.log(totalBayar + " tidak dapat diskon");
+}
+console.log("==========");
+
+// soal 2
+
+let nilaiTeori = 75;
+let nilaiPraktik = 80;
+let nilaiAkhir = (nilaiTeori * 0.6) + (nilaiPraktik * 0.4);
+
+if (nilaiAkhir >= 85) {
+    console.log(`Nilai Akhir: ${nilaiAkhir}. Status: Lulus dengan Pujian`);
+} else if (nilaiAkhir >= 75) {
+    console.log(`Nilai Total ${nilaiAkhir} = Lulus`);
+} else if (nilaiTeori < 60) {
+    console.log(`Nilai Akhir ${nilaiAkhir}. Status: Tidak Lulus (nilai Teori tidak memenuhi syarat)`);
+} else if (nilaiPraktik < 40) {
+    console.log(`Nilai Akhir ${nilaiAkhir}. Status: Tidak Lulus (nilai Praktik tidak memenuhi syarat)`);
+} else {
+    console.log(`Nilai Akhir: ${nilaiAkhir}. Status: Tidak Lulus`);
+}
+console.log("=============================");
+
+// soal 3
+
+let kendaraan = "motor"; // atau "mobil"
+let durasi = 2.5;
+let isMember = true;
+let kartuHilang = false;
+
+let tarifPertama, tarifBerikutnya, tarifMaksimal;
+
+if (kendaraan === "motor") {
+    tarifPertama = 2000;
+    tarifBerikutnya = 1000;
+    tarifMaksimal = 10000;
+} else if (kendaraan === "mobil") {
+    tarifPertama = 5000;
+    tarifBerikutnya = 2000;
+    tarifMaksimal = 25000;
+}
+
+let durasiBulat = Math.ceil(durasi);
+let tarif = 0;
+
+if (durasiBulat <= 1) {
+    tarif = tarifPertama;
+} else {
+    tarif = tarifPertama + (tarifBerikutnya * (durasiBulat - 1));
+}
+
+if (tarif > tarifMaksimal) {
+    tarif = tarifMaksimal;
+}
+
+if (kartuHilang) {
+    console.log("Denda hilang kartu: Rp 50000");
+    console.log("Diskon member tidak berlaku");
+    console.log("Total: Rp 50000");
+} else {
+    let diskon = isMember ? 0.15 : 0;
+    let potongan = tarif * diskon;
+    let totalAkhir = tarif - potongan;
+
+    console.log(`Tarif: Rp ${tarif}`);
+    if (isMember) {
+        console.log(`Diskon member 15%: Rp ${potongan}`);
+    } else {
+        console.log(`Diskon: Rp 0`);
+    }
+    console.log(`Total: Rp ${totalAkhir}`);
+}
+    </script>
+</body>
+</html>
